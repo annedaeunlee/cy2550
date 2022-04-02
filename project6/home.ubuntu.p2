@@ -1,0 +1,26 @@
+# Last Modified: Sat Apr  2 01:28:10 2022
+#include <tunables/global>
+
+/home/ubuntu/p2 flags=(audit) {
+  #include <abstractions/base>
+  #include <abstractions/user-tmp>
+  #include <abstractions/nameservice>
+  /home/ubuntu/p2 mr,
+  /home/ubuntu/template r,
+  /home/ubuntu/.project2/config w,
+  /var/log/syslog r,
+  /sys/kernel/mm/transparent_hugepage/hpage_pmd_size rw,
+  /etc/timezone r,
+  /proc/uptime r,
+  /proc/version r,
+  /proc/stat r,
+  /proc/* r,
+  /etc/hostid r,
+  /etc/passwd r,
+  /etc/hosts r,
+  /etc/* r,
+  /etc/resolv.conf r,
+  network tcp,
+  #deny /proc/stat rw,
+  deny /proc/meminfo rw,
+}
